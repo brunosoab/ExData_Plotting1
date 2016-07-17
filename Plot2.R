@@ -1,0 +1,6 @@
+setwd("/Users/bruno/Projects/Coursera/Exploratory Data Analysis/ExData_Plotting1/")
+household_power_consumption<-read.csv(file="exdata-data-household_power_consumption/household_power_consumption.txt",sep=";")
+new_household_power_consumption<-subset(household_power_consumption,as.Date(Date,"%d/%m/%Y")>=as.Date("2007-02-01") & as.Date(Date,"%d/%m/%Y")<=as.Date("2007-02-02"))
+png('plot2.png',width=480,height=480)
+with(new_household_power_consumption,plot(strptime(paste(Date,Time),"%d/%m/%Y %H:%M:%S"),as.numeric(Global_active_power),type="l",xlab="",ylab="Global Active Power (kilowatts)"))
+dev.off()

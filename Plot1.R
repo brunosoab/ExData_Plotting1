@@ -1,0 +1,6 @@
+setwd(system("pwd", intern = T))
+household_power_consumption <- read.csv(file="household_power_consumption.txt",sep=";")
+new_household_power_consumption <- subset(household_power_consumption,as.Date(Date,"%d/%m/%Y")>=as.Date("2007-02-01") & as.Date(Date,"%d/%m/%Y")<=as.Date("2007-02-02"))
+png('plot1.png',width=480,height=480)
+with(new_household_power_consumption,hist(as.numeric(as.character(Global_active_power)),col="red",main="Global Active Power",xlab="Global Active Power (kilowatts)"))
+dev.off()
